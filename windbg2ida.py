@@ -43,7 +43,7 @@ def fillInGraph(matches):
 		# color and comment
 		SetColor(addr, CIC_ITEM, 0x7f0000) # blue
 		if comment:
-			MakeComm(addr, comments)
+			MakeComm(addr, comment)
 
 if __name__ == '__main__':
 	# parse the file

@@ -24,26 +24,26 @@ def fillInGraph(matches):
 
 	for match in matches:
 		# the new comment
-		comment = ""
+		comment = []
 
 		# the registers used in the instruction
 		regs = re.findall(regs_pattern, match['last_line'])
 		for reg in regs:
-			comment += "%s=%s;" % (reg, match[reg])
+			comment.append( "%s=%s;" % (reg, match[reg]) )
 
 		# we are interested in the address and the comment of the last line
 		last_line = match['last_line'].split()
 		addr = int(last_line[0], 16)
 		if len(last_line) > 4:
 			if comment:
-				comment += '*'+last_line[-1].split(':')[-1]
+				comment.append('*'+last_line[-1].split(':')[-1])
 			else:
-				comment += last_line[-1].split(':')[-1]
+				comment.append(last_line[-1].split(':')[-1])
 
 		# color and comment
 		SetColor(addr, CIC_ITEM, 0x7f0000) # blue
 		if comment:
-			MakeComm(addr, comment)
+			MakeComm(addr, '\n'.join(comment))
 
 if __name__ == '__main__':
 	# parse the file

@@ -6,3 +6,7 @@ From WinDBG:
 2. Step through a program manually or automatically, "pa 0xdeadbeef"
 3. In IDA, import the windbg2ida.py file
 4. In the output window, "windbg2ida(mylog.txt)"
+
+For an example before and after, check out :
+
+http://rmadair.github.com/windbg2ida/

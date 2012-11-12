@@ -45,9 +45,9 @@ def fillInGraph(matches):
 		if comment:
 			MakeComm(addr, '\n'.join(comment))
 
-if __name__ == '__main__':
+def windbg2ida(filename):
 	# parse the file
-	matches = parseFile(argv[1])
+	matches = parseFile(filename)
 	if not matches:
 		print 'Unable to parse the file. Exiting'
 		exit(1)
